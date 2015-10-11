@@ -1,12 +1,13 @@
 package controllers
 
-import play.api._
+import models.Planet
 import play.api.mvc._
 
 object Application extends Controller {
 
   def index = Action {
-    Ok(views.html.index("Your new application is ready."))
+    val planet = new Planet()
+    Ok(views.html.index(planet.display))
   }
 
 }
