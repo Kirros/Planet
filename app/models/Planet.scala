@@ -1,6 +1,6 @@
 package models
 
-import play.api.libs.json.{JsValue, Json}
+import models.solid.Sphere
 
 /**
  * Representing planet in the view
@@ -8,12 +8,8 @@ import play.api.libs.json.{JsValue, Json}
  * Created by Kirros on 11. 10. 2015.
  */
 class Planet {
-  val json: JsValue = Json.obj( "faces" -> Json.arr(
-    Json.obj("vertices" -> Json.arr(0.0, 1.0, 0.0,-1.0,-1.0, 1.0, 1.0,-1.0, 1.0), "colors" -> Json.arr(1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,1.0)),
-    Json.obj("vertices" -> Json.arr(0.0, 1.0, 0.0, 1.0,-1.0, 1.0, 1.0,-1.0,-1.0), "colors" -> Json.arr(1.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0)),
-    Json.obj("vertices" -> Json.arr(0.0, 1.0, 0.0, 1.0,-1.0,-1.0,-1.0,-1.0,-1.0), "colors" -> Json.arr(1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,1.0)),
-    Json.obj("vertices" -> Json.arr(0.0, 1.0, 0.0,-1.0,-1.0,-1.0,-1.0,-1.0, 1.0), "colors" -> Json.arr(1.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0))
-  ))
-
-  def display: String = json.toString()
+  def display: String = {
+    val sphere = new Sphere()
+    sphere.toJson.toString()
+  }
 }

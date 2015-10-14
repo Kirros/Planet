@@ -133,7 +133,7 @@ function degToRad(degrees) {
 var objectVertexPositionBuffer;
 var objectVertexColorBuffer;
 
-function initBuffers() {
+function initBuffers(polygons) {
     objectVertexPositionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, objectVertexPositionBuffer);
 
@@ -141,7 +141,7 @@ function initBuffers() {
 
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
     objectVertexPositionBuffer.itemSize = 3;
-    objectVertexPositionBuffer.numItems = 12;
+    objectVertexPositionBuffer.numItems = 3 * polygons;
 
     objectVertexColorBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, objectVertexColorBuffer);

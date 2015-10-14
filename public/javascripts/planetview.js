@@ -4,14 +4,7 @@
  * Created by Kirros on 10. 10. 2015.
  */
 
-var planetObject = {"faces": [
-                        {"vertices": [0.0, 1.0, 0.0,-1.0,-1.0, 1.0, 1.0,-1.0, 1.0], "colors": [1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,1.0]},
-                        {"vertices": [0.0, 1.0, 0.0, 1.0,-1.0, 1.0, 1.0,-1.0,-1.0], "colors": [1.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0]},
-                        {"vertices": [0.0, 1.0, 0.0, 1.0,-1.0,-1.0,-1.0,-1.0,-1.0], "colors": [1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,1.0]},
-                        {"vertices": [0.0, 1.0, 0.0,-1.0,-1.0,-1.0,-1.0,-1.0, 1.0], "colors": [1.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0]}
-                    ]};
-
-function buildPlanet() {
+function buildPlanet(planetObject) {
     var planet = new Object3D();
 
     planetObject["faces"].forEach(
@@ -23,12 +16,12 @@ function buildPlanet() {
     return planet;
 }
 
-function planetView() {
+function planetView(planetObject) {
     var canvas = document.getElementById("planet-view");
     initGL(canvas);
-    initObject(buildPlanet());
+    initObject(buildPlanet(planetObject));
     initShaders();
-    initBuffers();
+    initBuffers(planetObject["polycount"]);
 
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.enable(gl.DEPTH_TEST);
