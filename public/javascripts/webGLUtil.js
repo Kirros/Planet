@@ -186,7 +186,7 @@ function animate() {
     if (lastTime != 0) {
         var elapsed = timeNow - lastTime;
 
-        rObject += (90 * elapsed) / 1000.0;
+        rObject += (10 * elapsed) / 1000.0;
     }
     lastTime = timeNow;
 }
